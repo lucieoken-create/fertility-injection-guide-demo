@@ -14,6 +14,7 @@ patterns={
  'secret material':r'-----BEGIN [A-Z ]*PRIVATE KEY-----|\b(?:ghp_|github_pat_|sk_live_)[A-Za-z0-9_]+'
 }
 PUBLIC_LINKS=[
+ 'https://lucieoken-create.github.io/fertility-injection-guide-demo/',
  'https://github.com/lucieoken-create/fertility-injection-guide-demo',
  'https://www.linkedin.com/in/lucieoken/',
  'https://hijinx.studio'

@@ -2,7 +2,7 @@
 
 Made by [Lucie Oken](https://www.linkedin.com/in/lucieoken/) at [hijinx](https://hijinx.studio).
 
-[View the source on GitHub](https://github.com/lucieoken-create/fertility-injection-guide-demo).
+[Open the live demo](https://lucieoken-create.github.io/fertility-injection-guide-demo/) · [View the source on GitHub](https://github.com/lucieoken-create/fertility-injection-guide-demo).
 
 An illustrated guide that makes fertility injection instructions easier to follow. Fictional phases demonstrate an initial medication plan and an updated plan with an added medication. Dose, schedule and mixing-quantity fields are placeholders; practical device-specific steps link to public demonstrations and manufacturer instructions. No personal treatment records are included. This is not a personal prescription and has not been medically validated.
 
@@ -83,6 +83,12 @@ Generic improvements should move through a deliberate review process:
 4. Review the exact public payload and explicitly approve publication.
 
 A shared core can be explored later. There is no automatic synchronization in this demo.
+
+## Publishing this demo
+
+The public demo uses GitHub Pages in this repository. The `main` branch contains the clean, reviewed source; `gh-pages` contains only the generated `index.html`. The website does not serve working notes, tests or source files.
+
+For a later update, rebuild and run the privacy and browser checks, review the exact changes, then explicitly approve publication. Push reviewed source to `main` and update `gh-pages` with the matching generated HTML. A push to `main` alone does not update the website. Keep the two versions in sync deliberately; do not copy private content or private Git history into either branch.
 
 ## License and release status
 
