@@ -15,6 +15,7 @@ const key=async(name,code)=>{await send('Input.dispatchKeyEvent',{type:'keyDown'
 await send('Page.enable');await send('Runtime.enable');await send('Network.enable');await send('Page.navigate',{url});await ready();await mkdir(output,{recursive:true});
 check('Title and prominent demo status',await ev(`document.title.includes('Portfolio demo')&&document.querySelector('header').innerText.includes('Not for treatment decisions')`));
 check('Clean first load',await ev(`!phase&&selected.size===0&&read.size===0&&!document.querySelector('#confetti').children.length`));
+check('Practical purpose and adaptation guidance',await ev(`panel.innerText.includes('Your clinician may change medicines')&&panel.innerText.includes('Make it your own')&&panel.textContent.includes('Never commit medical records')`));
 check('Fictional data immutable',await ev(`Object.isFrozen(demo.phases)&&Object.isFrozen(demo.medications.follistim.steps)`));
 for(const width of [320,390,768,1280]){
  await send('Emulation.setDeviceMetricsOverride',{width,height:900,deviceScaleFactor:1,mobile:width<600});await ev(`goHome();window.scrollTo(0,0)`);
@@ -29,6 +30,7 @@ for(const width of [320,390,768,1280]){
    const length=await ev(`steps().length`);
    for(let i=0;i<length;i++){
     check(`${phaseId}/${med}/${i}/${width} readable`,await ev(`!transition&&section===${med}&&positions[section]===${i}&&document.documentElement.scrollWidth<=innerWidth&&document.querySelector('.plan').innerText.includes('[Prescribed dose]')&&document.querySelector('.med-position-list [aria-current=step]').textContent.includes('(current)')`));
+    check('Practical step and safe source '+phaseId+med+i+width,await ev(`!panel.innerText.includes('Connect a visual')&&!panel.innerText.includes('responsive layout')&&(!document.querySelector('.source-detail a')||document.querySelector('.source-detail a').rel==='noopener noreferrer')`));
     check('No automatic reading check '+phaseId+med+i+width,await ev(`!document.querySelector('#read-check').checked`));
     if(i===0){await click('#read-check');await click('#next');await click('#back');check('Back keeps check without celebration '+phaseId+med+width,await ev(`document.querySelector('#read-check').checked&&!document.querySelector('#confetti').children.length`));await click('#read-check');}
     if(i<length-1)await click('#next');
@@ -51,5 +53,13 @@ await ev(`localStorage.setItem('unrelated-progress-fixture','do-not-read');sessi
 await click('[data-phase="example-a"]');await click('[data-item="pen"]');await click('#all-phases');await click('[data-phase="example-b"]');check('Phase switching clears selections',await ev(`selected.size===0&&read.size===0`));
 for(const width of [390,1280]){await send('Emulation.setDeviceMetricsOverride',{width,height:900,deviceScaleFactor:1,mobile:width<600});await click('#tab-1');await ev(`positions[1]=0;render();window.scrollTo(0,0)`);const m=await send('Page.getLayoutMetrics'),s=await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:true,clip:{x:0,y:0,width,height:m.cssContentSize.height,scale:1}});await writeFile(output+'/card-'+width+'.png',Buffer.from(s.data,'base64'));}
 for(const path of ['example-plan.json','.git/config','README.md','assets/illustrations.json','tests/privacy.py'])check('No source exposure '+path,(await fetch(url+path)).status===404);
-check('No runtime errors',errors.length===0);check('No external requests',network.every(u=>u.startsWith(url)||u.startsWith('data:')));await ev(`goHome();window.scrollTo(0,0)`);
+for(const width of [390,1280]){
+ await send('Emulation.setDeviceMetricsOverride',{width,height:900,deviceScaleFactor:1,mobile:width<600});
+ for(const sectionIndex of [1,2,3]){
+  await ev(`openPhase('example-b');section=${sectionIndex};positions[section]=currentMedication().steps.findIndex(s=>s.diagram);render();window.scrollTo(0,0)`);
+  check('Technique diagram fits '+sectionIndex+width,await ev(`!!document.querySelector('.technique-figure svg[role=img]')&&document.documentElement.scrollWidth<=innerWidth`));
+  const m=await send('Page.getLayoutMetrics'),shot=await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:true,clip:{x:0,y:0,width,height:m.cssContentSize.height,scale:1}});await writeFile(output+'/technique-'+sectionIndex+'-'+width+'.png',Buffer.from(shot.data,'base64'));
+ }
+}
+check('No runtime errors' ,errors.length===0);check('No external requests',network.every(u=>u.startsWith(url)||u.startsWith('data:')));await ev(`goHome();window.scrollTo(0,0)`);
 await writeFile(output+'/results.json',JSON.stringify({passed:checks.length,checks,errors,externalRequests:network.filter(u=>!u.startsWith(url)&&!u.startsWith('data:'))},null,2));console.log(JSON.stringify({passed:checks.length,errors,output}));ws.close();

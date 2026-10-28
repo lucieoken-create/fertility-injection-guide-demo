@@ -1,6 +1,6 @@
 # Fertility injection guide — portfolio demo
 
-A fictional, illustrated interface for following a changing plan one card at a time. This project demonstrates interaction design; it contains no treatment plan, administration instructions or real records. It is not for treatment decisions and has not been medically validated.
+An illustrated guide that makes fertility injection instructions easier to follow. Fictional phases demonstrate an initial medication plan and an updated plan with an added medication. Dose, schedule and mixing-quantity fields are placeholders; practical device-specific steps link to public demonstrations and manufacturer instructions. No personal treatment records are included. This is not a personal prescription and has not been medically validated.
 
 ## The design problem
 
@@ -14,9 +14,9 @@ Dense instructions can be hard to navigate when a task has several parts and the
 - Medication transitions with large illustrations and an explicit Start button.
 - Phone and desktop layouts, keyboard navigation, focus management and accessible current-state text.
 - Brief encouragement and confetti that respect reduced motion. No celebration on Back or reload, and no duplicate burst when starting the next guide.
-- Self-contained output: no accounts, analytics, third-party scripts, embedded videos or remote requests.
+- Self-contained output: no accounts, analytics, third-party scripts, embedded videos or automatic remote requests. Public source links open only on deliberate click.
 
-All dose, schedule, effective-date and instruction fields are deliberate placeholders. Medication names identify example interface sections; they do not form a prescribing recommendation. Equipment illustrations are generic identifiers, not device specifications.
+Dose, schedule, effective-date, vial-count and diluent-amount fields are deliberate placeholders. General preparation and injection guidance retains its medication/device context; see CONTENT-SOURCES.md for scope and limitations. Medication names identify example interface sections; they do not form a prescribing recommendation. Equipment illustrations are generic identifiers, not device specifications.
 
 ## How Codex supported the build
 
@@ -53,8 +53,13 @@ Optional arguments: `--cdp http://127.0.0.1:9225`, `--url http://127.0.0.1:8766/
 - `build.py`: embeds the reviewed content and assets into a fresh `index.html` with a script-hash content security policy.
 - `serve.py`: local preview with an explicit route allowlist.
 - `tests/`: privacy and functional verification.
+- `CONTENT-SOURCES.md`: public-source mapping and boundaries of the practical content.
 
 The in-memory state namespace is `fertility-portfolio-demo-v1`. The demo never reads or writes browser storage, and every reload starts clean. Different examples also get separate state keys. No medication administration history is collected.
+
+## Adapting your own copy
+
+Once source sharing is approved, fork or copy a clean template, then create a private working version before adding any personal plan. Replace example medicines, devices, prescribed doses, times and phase changes with clinician-provided instructions. ChatGPT, Codex or Claude can help adapt content and illustrations; review every change against the actual materials. Never commit real medical records or personal treatment details to a public repository. A public fork is not private storage. No public repository URL exists yet.
 
 ## Future community template
 

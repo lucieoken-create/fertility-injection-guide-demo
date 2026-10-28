@@ -4,9 +4,9 @@
     {
       "id": "example-a",
       "number": "A",
-      "status": "Earlier example",
-      "title": "A simpler starting point",
-      "description": "Two sample medication guides, kept in one place.",
+      "status": "Previous sample phase",
+      "title": "Initial medication plan",
+      "description": "Follistim and Menopur are grouped into the first example plan. Open it to follow the preparation and injection guides.",
       "medications": [
         "follistim",
         "menopur"
@@ -15,9 +15,9 @@
     {
       "id": "example-b",
       "number": "B",
-      "status": "Featured example",
-      "title": "A plan that can change",
-      "description": "A third guide joins the sequence. The earlier example stays available.",
+      "status": "Current sample phase",
+      "title": "Updated plan: an added medication",
+      "description": "This example adds Ganirelix / Fyremadel alongside Follistim and Menopur. The initial plan remains available for reference.",
       "medications": [
         "follistim",
         "menopur",
@@ -33,22 +33,57 @@
       "schedule": "[Prescribed schedule]",
       "steps": [
         {
-          "title": "Pen and cartridge",
-          "art": "a",
-          "description": "A clear equipment illustration gives this medication its own visual identity.",
-          "placeholder": "[Add approved device and cartridge instructions.]"
-        },
-        {
-          "title": "Dose information, together",
+          "title": "Check the cartridge in your pen",
           "art": "cartridge",
-          "description": "Keep the prescribed amount and the relevant instructions on the same screen.",
-          "placeholder": "[Add the prescribed dose and approved checking steps.]"
+          "description": "Check your cartridge log for the amount remaining before preparing your dose. Medicine remaining in the cartridge is separate from the dose shown in the dose window.",
+          "sourceUrl": "https://www.youtube.com/watch?v=AEd0NsCXkrw&t=102s",
+          "sourceLabel": "Cartridge demonstration · 1:42",
+          "sourceNote": "For loading a new cartridge or an amount that will not cover the dose, use the full Follistim Pen instructions."
         },
         {
-          "title": "One focused instruction",
+          "title": "Attach the pen needle",
           "art": "capsules",
-          "description": "One instruction and one illustration make the next action easier to find.",
-          "placeholder": "[Add a verified instruction and its matching visual.]"
+          "description": "Clean the pen end with an alcohol swab. Peel the capsule seal, then push and twist the capsule onto the pen. After the outer capsule comes off, a smaller inner needle cover remains.",
+          "sourceUrl": "https://www.youtube.com/watch?v=AEd0NsCXkrw&t=168s",
+          "sourceLabel": "Pen needle demonstration · 2:48"
+        },
+        {
+          "title": "Check medicine flow before dialing",
+          "art": "a",
+          "description": "Use the Follistim Pen flow-check instructions for a new or partially used cartridge before setting the dose. These are different sequences; the linked instructions show both.",
+          "sourceUrl": "https://www.organon.com/product/usa/pi_circulars/f/follistim_aq_cartridge/follistim_cartridge_ppiifu.pdf#page=8",
+          "sourceLabel": "Follistim Pen flow check · pages 8–9"
+        },
+        {
+          "title": "Set and check your prescribed dose",
+          "art": "a",
+          "description": "Check that the medicine is clear and the dose window starts at zero. Set your prescribed dose, then check the dose window. Use the current prescribed amount each time.",
+          "sourceUrl": "https://www.youtube.com/watch?v=AEd0NsCXkrw&t=118s",
+          "sourceLabel": "Dose window demonstration · 1:58",
+          "placeholder": "[Prescribed dose]"
+        },
+        {
+          "title": "Prepare the site and position the pen",
+          "art": "a",
+          "description": "Clean the chosen skin area and let it dry. Remove the inner needle cover before the injection. The linked demonstration describes a 45°–90° range; the manufacturer instructions specify 90°. Use the directions taught for your pen and needle.",
+          "sourceUrl": "https://www.youtube.com/watch?v=AEd0NsCXkrw&t=264s",
+          "sourceLabel": "Pen angle demonstration · 4:24",
+          "diagram": "follistimAngle",
+          "sourceNote": "The diagram distinguishes the two sources. It does not specify insertion depth or hand position."
+        },
+        {
+          "title": "Use the pen injection button",
+          "art": "a",
+          "description": "The Follistim Pen delivers medicine with its injection button. Follow the linked administration sequence for pressing the button, waiting before withdrawal and checking the dose window.",
+          "sourceUrl": "https://www.organon.com/product/usa/pi_circulars/f/follistim_aq_cartridge/follistim_cartridge_ppiifu.pdf#page=10",
+          "sourceLabel": "Follistim Pen administration · pages 10–11"
+        },
+        {
+          "title": "Keep track of the cartridge",
+          "art": "cartridge",
+          "description": "Keep a separate log of new cartridges, doses taken and medicine remaining so you know when to switch cartridges. This guide does not create that log.",
+          "sourceUrl": "https://www.organon.com/product/usa/pi_circulars/f/follistim_aq_cartridge/follistim_cartridge_ppiifu.pdf#page=12",
+          "sourceLabel": "Cartridge record instructions · page 12"
         }
       ]
     },
@@ -59,28 +94,67 @@
       "schedule": "[Prescribed schedule]",
       "steps": [
         {
-          "title": "Recognize the supplies",
+          "title": "Check your vial count and diluent amount",
           "art": "c",
-          "description": "External labels distinguish the medication and diluent in the equipment view.",
-          "placeholder": "[Add the approved supply list.]"
+          "description": "Set out the prescribed number of Menopur powder vials and the separate diluent vial. Read their labels; cap color alone does not identify them.",
+          "sourceUrl": "https://www.menopur.com/wp-content/uploads/2023/12/Menopur-Injection-Guide_English.pdf#page=3",
+          "sourceLabel": "Menopur supplies and inspection",
+          "placeholder": "[Prescribed powder-vial count] · [Prescribed diluent amount]"
         },
         {
-          "title": "Keep the sequence clear",
+          "title": "Prepare the vial tops",
+          "art": "water",
+          "description": "Remove the vial caps and wipe the tops with an alcohol swab. Keep the powder and diluent vials distinct.",
+          "sourceUrl": "https://www.youtube.com/watch?v=KP12maxV8Gs&t=144s",
+          "sourceLabel": "Vial preparation · 2:24"
+        },
+        {
+          "title": "Connect the syringe to the Q-Cap",
           "art": "d",
-          "description": "A separate card can explain one part of a longer preparation sequence.",
-          "placeholder": "[Add one verified preparation instruction.]"
+          "description": "The Q-Cap connects the diluent vial and syringe. Follow the demonstration for placing it onto the vial, removing its protective carrier and connecting the syringe at the top. The injection needle is a separate item.",
+          "sourceUrl": "https://www.youtube.com/watch?v=KP12maxV8Gs&t=189s",
+          "sourceLabel": "Q-Cap connection · 3:09"
         },
         {
-          "title": "Connect a visual to a step",
-          "art": "e",
-          "description": "Relevant artwork stays beside the instruction on desktop and above it on a phone.",
-          "placeholder": "[Add a verified instruction and source.]"
+          "title": "Draw up the prescribed diluent amount",
+          "art": "water",
+          "description": "Use the linked preparation sequence to withdraw the amount of diluent specified in your instructions. The powder-vial count and diluent amount are separate parts of the plan.",
+          "sourceUrl": "https://www.menopur.com/wp-content/uploads/2023/12/Menopur-Injection-Guide_English.pdf#page=4",
+          "sourceLabel": "Diluent preparation · page 4",
+          "placeholder": "[Prescribed diluent amount]"
         },
         {
-          "title": "Keep details close",
+          "title": "Mix the powder",
+          "art": "powder",
+          "description": "Add the diluent to the first powder vial and withdraw the dissolved mixture. If your instructions call for additional powder vials, use that mixture for the next vial in the prescribed sequence.",
+          "sourceUrl": "https://www.menopur.com/wp-content/uploads/2023/12/Menopur-Injection-Guide_English.pdf#page=5",
+          "sourceLabel": "Mixing one or more vials · page 5",
+          "placeholder": "[Prescribed powder-vial count]",
+          "sourceNote": "The video demonstration uses one powder vial. Your prescribed vial count may differ."
+        },
+        {
+          "title": "Prepare the separate injection needle",
           "art": "f",
-          "description": "Optional source details remain within reach without interrupting the main sequence.",
-          "placeholder": "[Add the approved instruction and supporting reference.]"
+          "description": "After the prescribed mixing sequence, withdraw the mixture. Change from the Q-Cap to the separate injection needle specified in your instructions. Watch the demonstration for the air-bubble and drop-check step.",
+          "sourceUrl": "https://www.youtube.com/watch?v=KP12maxV8Gs&t=484s",
+          "sourceLabel": "Air-bubble and drop check · 8:04",
+          "placeholder": "[Prescribed injection needle]",
+          "sourceNote": "This demonstration uses one powder vial; it does not set your prescribed vial count."
+        },
+        {
+          "title": "Position the syringe at 90°",
+          "art": "f",
+          "description": "Use the prepared injection site. Hold the Menopur syringe at 90° to the skin surface. The syringe delivers medicine with its plunger; the Follistim Pen uses an injection button.",
+          "sourceUrl": "https://www.menopur.com/wp-content/uploads/2023/12/Menopur-Injection-Guide_English.pdf#page=6",
+          "sourceLabel": "Menopur injection sequence · page 6",
+          "diagram": "menopurAngle"
+        },
+        {
+          "title": "Follow the injection and disposal sequence",
+          "art": "e",
+          "description": "Use the linked sequence for insertion, pressing the plunger, withdrawal and disposal. Keep the syringe and needle handling together with the instructions for your supplies.",
+          "sourceUrl": "https://www.menopur.com/wp-content/uploads/2023/12/Menopur-Injection-Guide_English.pdf#page=6",
+          "sourceLabel": "Menopur injection and disposal · pages 6–7"
         }
       ]
     },
@@ -92,22 +166,56 @@
       "schedule": "[Prescribed schedule]",
       "steps": [
         {
-          "title": "Introduce a new medication",
+          "title": "Set out the prefilled syringe",
           "art": "prefilled",
-          "description": "The same familiar layout introduces a new illustrated guide.",
-          "placeholder": "[Add approved medication and device information.]"
+          "description": "Wash your hands. Set out the prefilled syringe, an alcohol swab and a sharps container. These steps follow the prefilled syringe shown in the linked demonstration.",
+          "sourceUrl": "https://www.youtube.com/watch?v=60DBBFIzXkk&t=36s",
+          "sourceLabel": "Prefilled syringe and supplies · 0:36"
         },
         {
-          "title": "Show one step at a time",
-          "art": "prefilled",
-          "description": "The illustration, instruction and optional reading check stay together.",
-          "placeholder": "[Add a verified instruction and reviewed illustration.]"
+          "title": "Move the air bubble toward the top",
+          "art": "ganBubble",
+          "description": "With the cap still on, gently flick the syringe barrel to move the air bubble toward the top, as shown in the demonstration.",
+          "sourceUrl": "https://www.youtube.com/watch?v=60DBBFIzXkk&t=46s",
+          "sourceLabel": "Capped syringe preparation · 0:46"
         },
         {
-          "title": "A clear place to finish",
+          "title": "Remove the cap and clear the air",
+          "art": "ganAir",
+          "description": "Remove the cap. Gently press the plunger upward to clear the air bubble, without pushing out medicine.",
+          "sourceUrl": "https://www.youtube.com/watch?v=60DBBFIzXkk&t=55s",
+          "sourceLabel": "Air preparation · 0:55"
+        },
+        {
+          "title": "Prepare the abdominal site",
+          "art": "ganSite",
+          "description": "Before the injection, put the cap back on and set the syringe aside while preparing the site, as shown in this demonstration. Clean the chosen abdominal site with an alcohol swab.",
+          "sourceUrl": "https://www.youtube.com/watch?v=60DBBFIzXkk&t=71s",
+          "sourceLabel": "Before-injection site preparation · 1:11",
+          "sourceNote": "The cap replacement shown here is before injection, not after the needle has been used."
+        },
+        {
+          "title": "Position the syringe at 45°–90°",
           "art": "prefilled",
-          "description": "The guide ends with a clear navigation boundary. Reading progress never becomes a medication record.",
-          "placeholder": "[Add the final approved instruction for this guide.]"
+          "description": "Remove the cap for the injection. Hold the syringe at 45°–90° to the skin surface, as demonstrated. Insert the needle fully so no needle shaft remains visible above the skin; keep the hub above the skin.",
+          "sourceUrl": "https://www.youtube.com/watch?v=60DBBFIzXkk&t=98s",
+          "sourceLabel": "Syringe positioning and insertion · 1:38",
+          "diagram": "ganirelixAngle",
+          "sourceNote": "This depicts the prefilled syringe demonstration, not a universal instruction for other devices."
+        },
+        {
+          "title": "Press the plunger all the way down",
+          "art": "ganDeliver",
+          "description": "After inserting the needle as shown in the demonstration, use your other hand to press the plunger all the way down.",
+          "sourceUrl": "https://www.youtube.com/watch?v=60DBBFIzXkk&t=108s",
+          "sourceLabel": "Plunger movement · 1:48"
+        },
+        {
+          "title": "Withdraw and dispose of the syringe",
+          "art": "ganSharps",
+          "description": "Follow the demonstration for withdrawing the syringe, then put the used syringe directly into the sharps container.",
+          "sourceUrl": "https://www.youtube.com/watch?v=60DBBFIzXkk&t=115s",
+          "sourceLabel": "Withdrawal and sharps disposal · 1:55"
         }
       ]
     }
