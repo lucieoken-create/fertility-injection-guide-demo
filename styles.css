@@ -40,3 +40,6 @@ main.is-home .make-own li{max-width:none}
 main.is-home .phase-card h3{font-size:28px;line-height:1.25}
 main.is-home .phase-card-copy>p.small{font-size:14px;line-height:22px}
 @media(max-width:600px){main.is-home{--home-inset:21px;--home-section-title:28px}main.is-home .home-intro{padding:20px}main.is-home .phase-card h3{font-size:26px}}
+
+/* Narrative surfaces fit the reading column rather than the full card grid. */
+main.is-home .home-intro,main.is-home .make-own{width:100%;max-width:calc(var(--home-measure) + 2 * var(--home-inset));margin-left:0;margin-right:0}

@@ -53,7 +53,8 @@ These rules are scoped to `main.is-home`; detail pages keep their existing typog
 - “Follow the plan by phase” and “Make it your own” are sibling h2 sections: Georgia 32px/40px on desktop, 28px/35px on phones. Phase-card h3 titles use 28px desktop/26px phone. The main page title retains its existing larger scale.
 - “How to adapt the guide” is a disclosure control, not another section heading: system sans-serif, 16px/26px, weight 600, with a 44px minimum target.
 - Intro, phase explanation and adaptation text share a 48rem (768px) maximum reading width. Their left edges align using a 25px desktop/21px phone inset from the main content edge. The intro's inset includes its existing 1px border plus 24px/20px padding; the unbordered adaptation panel uses 25px/21px padding.
-- On narrow screens these columns shrink to the same available width. The adaptation list keeps a 24px numbering indent but ends at the same right column boundary as its paragraphs. Text is left-aligned, never justified.
+- White intro and green adaptation panels are left-aligned with the header and phase grid. Their outer width is capped at the 48rem reading measure plus twice the shared inset: 818px on desktop (768px text + 25px on each side). They do not stretch to the wider two-card grid or center a narrow text block in an oversized box. The page background carries the remaining open space.
+- On narrow screens these panels and columns shrink to the same available width. The adaptation list keeps a 24px numbering indent but ends at the same right column boundary as its paragraphs. Text is left-aligned, never justified.
 - Phase cards intentionally retain their own responsive columns and internal padding. Small differences from their 1px/2px status borders are deliberate. No artificial line breaks force equal line endings; prose retains a natural ragged-right edge inside consistent containers.
 
 ## Responsive behavior and accessibility
