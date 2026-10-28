@@ -26,12 +26,14 @@
 @media(max-width:600px){.home-intro{padding:20px;margin:20px 0 32px;font-size:16px;line-height:1.65}.phase-home-note{font-size:15px}.make-own{padding:20px}.make-own p{font-size:15px}.make-own li{font-size:16px}.phase-grid{margin-bottom:28px}}
 
 /* Homepage reading rails and type roles; never applied inside a phase. */
-main.is-home{--home-measure:48rem;--home-inset:25px;--home-body:16px;--home-leading:26px;--home-section-title:32px}
+main.is-home{max-width:1000px;--home-inset:25px;--home-body:16px;--home-leading:26px;--home-section-title:32px}
 main.is-home .home-intro{padding:24px}
 main.is-home #phase-intro,main.is-home .phase-home-note,main.is-home .make-own>p,main.is-home .make-own li,main.is-home .phase-card-copy>p,main.is-home #opening-encouragement{font-size:var(--home-body);line-height:var(--home-leading)}
-main.is-home #phase-intro,main.is-home .phase-home-note,main.is-home .make-own>p,main.is-home .make-own details{max-width:var(--home-measure)}
-main.is-home #guide-panel>h2,main.is-home .phase-home-note{margin-left:var(--home-inset);margin-right:var(--home-inset)}
-main.is-home #guide-panel>h2,main.is-home #make-own-title{font:400 var(--home-section-title)/1.25 Georgia,serif;max-width:var(--home-measure)}
+main.is-home #phase-intro,main.is-home .phase-home-note,main.is-home .make-own>p,main.is-home .make-own details{max-width:none;width:100%}
+main.is-home .phase-overview{width:100%;padding:0 var(--home-inset)}
+main.is-home .phase-home-note{margin-left:0;margin-right:0}
+main.is-home .phase-overview>h2+.phase-home-note{margin-top:12px}
+main.is-home .phase-overview>h2,main.is-home #make-own-title{font:400 var(--home-section-title)/1.25 Georgia,serif;max-width:none}
 main.is-home #make-own-title{margin:0 0 12px}
 main.is-home .make-own{padding:var(--home-inset)}
 main.is-home .make-own summary{font:600 16px/26px system-ui,sans-serif;min-height:44px;padding:9px 0}
@@ -41,5 +43,7 @@ main.is-home .phase-card h3{font-size:28px;line-height:1.25}
 main.is-home .phase-card-copy>p.small{font-size:14px;line-height:22px}
 @media(max-width:600px){main.is-home{--home-inset:21px;--home-section-title:28px}main.is-home .home-intro{padding:20px}main.is-home .phase-card h3{font-size:26px}}
 
-/* Narrative surfaces fit the reading column rather than the full card grid. */
-main.is-home .home-intro,main.is-home .make-own{width:100%;max-width:calc(var(--home-measure) + 2 * var(--home-inset));margin-left:0;margin-right:0}
+/* Every major homepage section fills the same responsive parent. */
+main.is-home .home-intro,main.is-home .phase-grid,main.is-home .make-own{width:100%;max-width:none;margin-left:0;margin-right:0}
+body:has(main.is-home) .bar{max-width:1000px}
+main.is-home>h1{max-width:none}
