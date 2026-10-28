@@ -36,14 +36,25 @@ Technique diagrams have their own viewBoxes and accessible titles/descriptions. 
 
 ## Existing components
 
-- **Home introduction:** a warm-white panel with a thin border, matching 18px card corners and a 72ch text measure. Desktop padding is 24px vertically/28px horizontally; phones use 20px. Its 40px desktop/32px phone bottom gap separates the introduction from the phase section. Walkthrough intros remain unboxed.
+- **Home introduction:** a warm-white panel with a thin border, matching 18px card corners and the shared homepage reading measure below. Desktop padding is 24px; phones use 20px. Its 40px desktop/32px phone bottom gap separates the introduction from the phase section. Walkthrough intros remain unboxed.
 
 - **Phase cards:** current sample first, earlier sample alongside it on desktop. Keep the status eyebrow, short sentence-case title, medication artwork and “View instructions” button. Explain changes in body text. Desktop card gaps are 24px; give headings 12px above and 16px below, and align action buttons to the bottom of each card. Phase sections have a 32px bottom gap (28px on phones).
 - **Supply cards:** equipment artwork above a separate white label footer. `.supply-label` centers text horizontally and vertically, with symmetric padding, a 72px desktop minimum and 66px phone minimum. Wrapped labels stay centered. Never center the entire card in place of its footer. Selection outlines and `aria-pressed` communicate optional selection.
 - **Step cards:** illustration beside practical copy on desktop, above it on phones. Dose/schedule placeholders sit above reading progress. Use 32px desktop copy padding and 24px on phones (the existing compact diagram override remains). Source details open in place; external links open only on a deliberate click.
 - **Technique diagrams:** preserve legible external labels and sufficient space around angle markers. Avoid overlaps with equipment or other annotations.
 - **Medication transitions:** explicit end-of-guide text, next medication illustration and Start button. Back restores the prior boundary. Starting the next guide does not double the celebration.
-- **Make it your own:** separate home section with collapsible adaptation guidance. Use 24px desktop/20px phone padding and a compact disclosure-to-list gap. Do not turn the medication walkthrough into developer setup instructions.
+- **Make it your own:** separate home section with collapsible adaptation guidance. Use the shared homepage inset below and a compact disclosure-to-list gap. Do not turn the medication walkthrough into developer setup instructions.
+
+## Homepage type and reading columns
+
+These rules are scoped to `main.is-home`; detail pages keep their existing typography and layout.
+
+- Main narrative copy (intro, phase explanation, adaptation paragraphs and list): 16px/26px on phone and desktop. Card body copy uses the same size; supporting card copy is 14px/22px. Status eyebrows remain 12px.
+- “Follow the plan by phase” and “Make it your own” are sibling h2 sections: Georgia 32px/40px on desktop, 28px/35px on phones. Phase-card h3 titles use 28px desktop/26px phone. The main page title retains its existing larger scale.
+- “How to adapt the guide” is a disclosure control, not another section heading: system sans-serif, 16px/26px, weight 600, with a 44px minimum target.
+- Intro, phase explanation and adaptation text share a 48rem (768px) maximum reading width. Their left edges align using a 25px desktop/21px phone inset from the main content edge. The intro's inset includes its existing 1px border plus 24px/20px padding; the unbordered adaptation panel uses 25px/21px padding.
+- On narrow screens these columns shrink to the same available width. The adaptation list keeps a 24px numbering indent but ends at the same right column boundary as its paragraphs. Text is left-aligned, never justified.
+- Phase cards intentionally retain their own responsive columns and internal padding. Small differences from their 1px/2px status borders are deliberate. No artificial line breaks force equal line endings; prose retains a natural ragged-right edge inside consistent containers.
 
 ## Responsive behavior and accessibility
 

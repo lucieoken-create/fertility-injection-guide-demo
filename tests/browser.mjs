@@ -24,6 +24,8 @@ check('Fictional data immutable',await ev(`Object.isFrozen(demo.phases)&&Object.
 for(const width of [320,390,768,1280]){
  await send('Emulation.setDeviceMetricsOverride',{width,height:900,deviceScaleFactor:1,mobile:width<600});await ev(`goHome();window.scrollTo(0,0)`);
  check('Home fits '+width,await ev(`document.documentElement.scrollWidth<=innerWidth`));
+ check('Homepage narrative type and measure '+width,await ev(`(()=>{const elements=[document.querySelector('#phase-intro'),document.querySelector('.phase-home-note'),document.querySelector('.make-own>p')],rects=elements.map(e=>e.getBoundingClientRect());return elements.every(e=>getComputedStyle(e).fontSize==='16px'&&getComputedStyle(e).lineHeight==='26px')&&Math.max(...rects.map(r=>r.left))-Math.min(...rects.map(r=>r.left))<1&&Math.max(...rects.map(r=>r.width))-Math.min(...rects.map(r=>r.width))<1&&getComputedStyle(document.querySelector('.make-own summary')).fontSize==='16px'&&getComputedStyle(document.querySelector('#section-title')).fontSize===getComputedStyle(document.querySelector('#make-own-title')).fontSize;})()`));
+
  if(width===390||width===1280){await ev(`document.querySelector('.make-own details').open=true`);const m=await send('Page.getLayoutMetrics'),s=await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:true,clip:{x:0,y:0,width,height:m.cssContentSize.height,scale:1}});await writeFile(output+'/home-'+width+'.png',Buffer.from(s.data,'base64'));}
  await ev(`document.querySelector('.make-own details').open=false`);
  for(const phaseId of ['example-a','example-b']){
