@@ -2,7 +2,7 @@
 from pathlib import Path
 import re,json,subprocess,hashlib,base64
 ROOT=Path(__file__).resolve().parents[1]
-ALLOWED={'.gitignore','README.md','app.js','assets/illustrations.json','build.py','celebration.js','example-plan.json','index.html','index.template.html','serve.py','styles.css','tests/privacy.py','tests/browser.mjs','CONTENT-SOURCES.md'}
+ALLOWED={'.gitignore','README.md','app.js','assets/illustrations.json','build.py','celebration.js','example-plan.json','index.html','index.template.html','serve.py','styles.css','tests/privacy.py','tests/browser.mjs','CONTENT-SOURCES.md','AGENTS.md','DESIGN-GUIDE.md'}
 files={p.relative_to(ROOT).as_posix() for p in ROOT.rglob('*') if p.is_file() and '.git' not in p.relative_to(ROOT).parts and '__pycache__' not in p.parts}
 assert files==ALLOWED,('Unexpected or missing files',sorted(files^ALLOWED))
 patterns={

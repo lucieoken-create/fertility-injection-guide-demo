@@ -15,13 +15,16 @@ const key=async(name,code)=>{await send('Input.dispatchKeyEvent',{type:'keyDown'
 await send('Page.enable');await send('Runtime.enable');await send('Network.enable');await send('Page.navigate',{url});await ready();await mkdir(output,{recursive:true});
 check('Title and prominent demo status',await ev(`document.title.includes('Portfolio demo')&&document.querySelector('header').innerText.includes('Not for treatment decisions')`));
 check('Clear phase titles and grouped tools',await ev(`JSON.stringify([...panel.querySelectorAll('.phase-card h3')].map(e=>e.textContent))===JSON.stringify(['Updated medication plan','Initial medication plan'])&&panel.textContent.includes('ChatGPT/Codex or Claude')`));
+check('Warm introduction and flexible phase count',await ev(`document.querySelector('#phase-intro').textContent.includes('leading up to egg retrieval')&&panel.innerText.includes('Your own plan may have more or fewer')`));
+check('Photo and source adaptation guidance',await ev(`panel.textContent.includes('DESIGN-GUIDE.md')&&panel.textContent.includes('barcodes, IDs')&&panel.textContent.includes('rather than republishing')`));
 check('Clean first load',await ev(`!phase&&selected.size===0&&read.size===0&&!document.querySelector('#confetti').children.length`));
 check('Practical purpose and adaptation guidance',await ev(`panel.innerText.includes('Your clinician may change medicines')&&panel.innerText.includes('Make it your own')&&panel.textContent.includes('Never commit medical records')`));
 check('Fictional data immutable',await ev(`Object.isFrozen(demo.phases)&&Object.isFrozen(demo.medications.follistim.steps)`));
 for(const width of [320,390,768,1280]){
  await send('Emulation.setDeviceMetricsOverride',{width,height:900,deviceScaleFactor:1,mobile:width<600});await ev(`goHome();window.scrollTo(0,0)`);
  check('Home fits '+width,await ev(`document.documentElement.scrollWidth<=innerWidth`));
- if(width===390||width===1280){const m=await send('Page.getLayoutMetrics'),s=await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:true,clip:{x:0,y:0,width,height:m.cssContentSize.height,scale:1}});await writeFile(output+'/home-'+width+'.png',Buffer.from(s.data,'base64'));}
+ if(width===390||width===1280){await ev(`document.querySelector('.make-own details').open=true`);const m=await send('Page.getLayoutMetrics'),s=await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:true,clip:{x:0,y:0,width,height:m.cssContentSize.height,scale:1}});await writeFile(output+'/home-'+width+'.png',Buffer.from(s.data,'base64'));}
+ await ev(`document.querySelector('.make-own details').open=false`);
  for(const phaseId of ['example-a','example-b']){
   await click('[data-phase="'+phaseId+'"]');
   check(phaseId+' supply grid '+width,await ev(`document.querySelectorAll('.supply').length===(phase.medications.length===3?9:8)`));

@@ -42,6 +42,10 @@ node tests/browser.mjs
 
 Optional arguments: `--cdp http://127.0.0.1:9225`, `--url http://127.0.0.1:8766/`, and `--output /tmp/portfolio-demo-review`. Test screenshots are written outside this repository.
 
+## Editing guidance
+
+Coding assistants should start with [AGENTS.md](AGENTS.md) and the [mini design and component guide](DESIGN-GUIDE.md). The guide records the existing colors, typography, illustrations, components, responsive behavior and verification steps. It supports consistent edits; it does not generate content automatically or establish medical correctness.
+
 ## File structure
 
 - `example-plan.json`: fictional phase, supply and card content, including dose/schedule placeholders.
@@ -54,12 +58,14 @@ Optional arguments: `--cdp http://127.0.0.1:9225`, `--url http://127.0.0.1:8766/
 - `serve.py`: local preview with an explicit route allowlist.
 - `tests/`: privacy and functional verification.
 - `CONTENT-SOURCES.md`: public-source mapping and boundaries of the practical content.
+- `AGENTS.md`: starting instructions for coding assistants.
+- `DESIGN-GUIDE.md`: current visual conventions, components and editing rules.
 
 The in-memory state namespace is `fertility-portfolio-demo-v1`. The demo never reads or writes browser storage, and every reload starts clean. Different examples also get separate state keys. No medication administration history is collected.
 
 ## Adapting your own copy
 
-Once source sharing is approved, fork or copy a clean template, then create a private working version before adding any personal plan. Replace example medicines, devices, prescribed doses, times and phase changes with clinician-provided instructions. ChatGPT/Codex or Claude can help adapt content and illustrations; review every change against the actual materials. Never commit real medical records or personal treatment details to a public repository. A public fork is not private storage. No public repository URL exists yet.
+Once source sharing is approved, fork or copy a clean template, then create a private working version before adding any personal plan. Replace example medicines, devices, prescribed doses, times and phase changes with clinician-provided instructions. Use clinic-provided instructions and video links with ChatGPT/Codex or Claude to adapt content. Clear equipment photos can inform matching illustrations: crop or cover names, prescription labels, barcodes, IDs and other personal details before sharing them. Only share materials you have permission to use, and link to videos rather than republishing them. Use the mini design guide to keep edits consistent, and review every step and illustration against clinician-provided materials. Never commit real medical records or personal treatment details to a public repository. A public fork is not private storage. No public repository URL exists yet.
 
 ## Future community template
 
