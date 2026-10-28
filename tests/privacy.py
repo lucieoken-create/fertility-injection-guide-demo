@@ -13,6 +13,11 @@ patterns={
  'external account or source link':r'https?://(?!127\.0\.0\.1(?::\d+)?(?:/|\b)|localhost(?::\d+)?(?:/|\b))[^\s<>"\x27]+',
  'secret material':r'-----BEGIN [A-Z ]*PRIVATE KEY-----|\b(?:ghp_|github_pat_|sk_live_)[A-Za-z0-9_]+'
 }
+PUBLIC_LINKS=[
+ 'https://github.com/lucieoken-create/fertility-injection-guide-demo',
+ 'https://www.linkedin.com/in/lucieoken/',
+ 'https://hijinx.studio'
+]
 PUBLIC_SOURCES=[
  'https://www.youtube.com/watch?v=AEd0NsCXkrw',
  'https://www.youtube.com/watch?v=KP12maxV8Gs',
@@ -22,7 +27,7 @@ PUBLIC_SOURCES=[
 ]
 def scan(name,data):
  text=data.decode('utf-8').replace('http://www.w3.org/2000/svg','')
- for source in PUBLIC_SOURCES:text=text.replace(source,'PUBLIC_SOURCE')
+ for source in PUBLIC_SOURCES+PUBLIC_LINKS:text=text.replace(source,'PUBLIC_SOURCE')
  for label,pattern in patterns.items():assert not re.search(pattern,text,re.I),(name,label)
 for name in sorted(files):scan(name,(ROOT/name).read_bytes())
 plan=json.loads((ROOT/'example-plan.json').read_text());assert plan['namespace']=='fertility-portfolio-demo-v1'
@@ -40,9 +45,13 @@ assert '{{SCRIPT}}' not in html
 history_blobs=0
 if (ROOT/'.git').exists():
  tracked=set(subprocess.check_output(['git','ls-files'],cwd=ROOT,text=True).splitlines());assert tracked==ALLOWED
- assert subprocess.check_output(['git','remote'],cwd=ROOT,text=True).strip()==''
+ remotes=subprocess.check_output(['git','remote'],cwd=ROOT,text=True).splitlines()
+ assert remotes in ([],['origin'])
+ if remotes:
+  for direction in ([],['--push']):
+   assert subprocess.check_output(['git','remote','get-url',*direction,'origin'],cwd=ROOT,text=True).strip()=='https://github.com/lucieoken-create/fertility-injection-guide-demo.git'
  if subprocess.run(['git','rev-parse','--verify','HEAD'],cwd=ROOT,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL).returncode==0:
   for line in subprocess.check_output(['git','rev-list','--objects','--all'],cwd=ROOT,text=True).splitlines():
    oid=line.split()[0]
    if subprocess.check_output(['git','cat-file','-t',oid],cwd=ROOT,text=True).strip()=='blob':scan('history blob '+oid,subprocess.check_output(['git','cat-file','blob',oid],cwd=ROOT));history_blobs+=1
-print(json.dumps({'files_scanned':len(files),'history_blobs_scanned':history_blobs,'personal_dose_schedule_placeholders':True,'CSP_verified':True,'no_storage':True,'no_remote':True}))
+print(json.dumps({'files_scanned':len(files),'history_blobs_scanned':history_blobs,'personal_dose_schedule_placeholders':True,'CSP_verified':True,'no_storage':True,'remote_is_absent_or_approved_demo':True}))

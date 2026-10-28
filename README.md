@@ -1,5 +1,9 @@
 # Fertility injection guide — portfolio demo
 
+Made by [Lucie Oken](https://www.linkedin.com/in/lucieoken/) at [hijinx](https://hijinx.studio).
+
+[View the source on GitHub](https://github.com/lucieoken-create/fertility-injection-guide-demo).
+
 An illustrated guide that makes fertility injection instructions easier to follow. Fictional phases demonstrate an initial medication plan and an updated plan with an added medication. Dose, schedule and mixing-quantity fields are placeholders; practical device-specific steps link to public demonstrations and manufacturer instructions. No personal treatment records are included. This is not a personal prescription and has not been medically validated.
 
 ## The design problem
@@ -32,7 +36,7 @@ python3 tests/privacy.py
 python3 serve.py
 ```
 
-Open **http://127.0.0.1:8766/**. The preview binds only to loopback and serves only the generated HTML. No remote repository or deployment is configured.
+Open **http://127.0.0.1:8766/**. The preview binds only to loopback and serves only the generated HTML. This local preview is separate from the published portfolio demo.
 
 For browser QA, run an isolated Chrome instance with remote debugging on port 9225, then run the dependency-free browser test with Node 22 or newer:
 
@@ -65,7 +69,7 @@ The in-memory state namespace is `fertility-portfolio-demo-v1`. The demo never r
 
 ## Adapting your own copy
 
-Once source sharing is approved, fork or copy a clean template, then create a private working version before adding any personal plan. Replace example medicines, devices, prescribed doses, times and phase changes with clinician-provided instructions. Use clinic-provided instructions and video links with ChatGPT/Codex or Claude to adapt content. Clear equipment photos can inform matching illustrations: crop or cover names, prescription labels, barcodes, IDs and other personal details before sharing them. Only share materials you have permission to use, and link to videos rather than republishing them. Use the mini design guide to keep edits consistent, and review every step and illustration against clinician-provided materials. Never commit real medical records or personal treatment details to a public repository. A public fork is not private storage. No public repository URL exists yet.
+The source is public for portfolio review. For a personal adaptation, begin with a clean private working copy before adding any personal plan. A community-template license has not been selected yet. Replace example medicines, devices, prescribed doses, times and phase changes with clinician-provided instructions. Use clinic-provided instructions and video links with ChatGPT/Codex or Claude to adapt content. Clear equipment photos can inform matching illustrations: crop or cover names, prescription labels, barcodes, IDs and other personal details before sharing them. Only share materials you have permission to use, and link to videos rather than republishing them. Use the mini design guide to keep edits consistent, and review every step and illustration against clinician-provided materials. Never commit real medical records or personal treatment details to a public repository. A public fork is not private storage.
 
 ## Future community template
 
@@ -82,4 +86,4 @@ A shared core can be explored later. There is no automatic synchronization in th
 
 ## License and release status
 
-Local review only. No open-source license has been selected or added. A license choice will be proposed for approval before a community release; this draft does not grant an open-source license.
+Published as a portfolio demonstration. No open-source license has been selected or added. A license choice will be proposed for approval before a community-template release; public visibility does not grant an open-source license.
