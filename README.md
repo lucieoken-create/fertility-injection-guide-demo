@@ -8,7 +8,7 @@ An illustrated guide that makes fertility injection instructions easier to follo
 
 ## The design problem
 
-Dense instructions can be hard to navigate when a task has several parts and the plan changes. This demo explores a calmer reading experience: a visible phase structure, recognizable equipment illustrations, short cards and explicit boundaries between medication guides.
+Dense injection instructions can be hard to navigate when a task has several parts and the plan changes. The goal of this demo is a more cohesive process experience: a visible phase structure, recognizable equipment illustrations, short cards and explicit boundaries between medication guides and phases.
 
 ## Design and features
 
@@ -24,7 +24,7 @@ Dose, schedule, effective-date, vial-count and diluent-amount fields are deliber
 
 ## How Codex supported the build
 
-Codex supported iterative layout development, code-native SVG refinement, state and navigation design, accessibility fixes, responsive browser checks and privacy scans. Human review shaped the visual direction and interaction decisions. The result demonstrates a collaborative design/build workflow, not clinical review.
+Codex (via Dot) supported iterative layout development, code-native SVG refinement, state and navigation design, accessibility fixes, responsive browser checks and privacy scans. Human review shaped the visual direction and interaction decisions. This was a collaborative design/build workflow, but NOT a clinical review or medical advice.
 
 ## Run locally
 
@@ -69,11 +69,11 @@ The in-memory state namespace is `fertility-portfolio-demo-v1`. The demo never r
 
 ## Adapting your own copy
 
-The source is public for portfolio review. For a personal adaptation, begin with a clean private working copy before adding any personal plan. A community-template license has not been selected yet. Replace example medicines, devices, prescribed doses, times and phase changes with clinician-provided instructions. Use clinic-provided instructions and video links with ChatGPT/Codex or Claude to adapt content. Clear equipment photos can inform matching illustrations: crop or cover names, prescription labels, barcodes, IDs and other personal details before sharing them. Only share materials you have permission to use, and link to videos rather than republishing them. Use the mini design guide to keep edits consistent, and review every step and illustration against clinician-provided materials. Never commit real medical records or personal treatment details to a public repository. A public fork is not private storage.
+The source is public for inspiration and adaptation. For a personal adaptation, begin with a clean private working copy before adding any personal plan or medical information. A community-template license has not been selected yet. Replace example medicines, devices, prescribed doses, times and phase changes with clinician-provided instructions. Use clinic-provided instructions and video links with ChatGPT/Codex or Claude to adapt content. Clear equipment photos can inform matching illustrations: crop or cover names, prescription labels, barcodes, IDs and other personal details before sharing them. Only share materials you have permission to use, and link to videos rather than republishing them. Use the mini design guide to keep edits consistent, and review every step and illustration against clinician-provided materials. Never commit real medical records or personal treatment details to a public repository. A public fork is not private storage.
 
 ## Future community template
 
-A forkable community template is planned, but this is a portfolio demonstration rather than a clinical configuration tool. Before community release, content contracts, validation, review responsibilities and safe configuration boundaries need further design. It is not ready for unsupervised clinical reuse.
+An updated template is planned, but this is an earlier demonstration rather than a clinical configuration tool. Before community release, content contracts, validation, review responsibilities and safe configuration boundaries need further design and checks. It is not ready for unsupervised clinical reuse.
 
 Generic improvements should move through a deliberate review process:
 
