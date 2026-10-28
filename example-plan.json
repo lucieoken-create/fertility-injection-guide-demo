@@ -1,0 +1,157 @@
+{
+  "namespace": "fertility-portfolio-demo-v1",
+  "phases": [
+    {
+      "id": "example-a",
+      "number": "A",
+      "status": "Earlier example",
+      "title": "A simpler starting point",
+      "description": "Two sample medication guides, kept in one place.",
+      "medications": [
+        "follistim",
+        "menopur"
+      ]
+    },
+    {
+      "id": "example-b",
+      "number": "B",
+      "status": "Featured example",
+      "title": "A plan that can change",
+      "description": "A third guide joins the sequence. The earlier example stays available.",
+      "medications": [
+        "follistim",
+        "menopur",
+        "ganirelix"
+      ]
+    }
+  ],
+  "medications": {
+    "follistim": {
+      "label": "Follistim",
+      "art": "a",
+      "dose": "[Prescribed dose]",
+      "schedule": "[Prescribed schedule]",
+      "steps": [
+        {
+          "title": "Pen and cartridge",
+          "art": "a",
+          "description": "A clear equipment illustration gives this medication its own visual identity.",
+          "placeholder": "[Add approved device and cartridge instructions.]"
+        },
+        {
+          "title": "Dose information, together",
+          "art": "cartridge",
+          "description": "Keep the prescribed amount and the relevant instructions on the same screen.",
+          "placeholder": "[Add the prescribed dose and approved checking steps.]"
+        },
+        {
+          "title": "One focused instruction",
+          "art": "capsules",
+          "description": "One instruction and one illustration make the next action easier to find.",
+          "placeholder": "[Add a verified instruction and its matching visual.]"
+        }
+      ]
+    },
+    "menopur": {
+      "label": "Menopur",
+      "art": "powder",
+      "dose": "[Prescribed dose]",
+      "schedule": "[Prescribed schedule]",
+      "steps": [
+        {
+          "title": "Recognize the supplies",
+          "art": "c",
+          "description": "External labels distinguish the medication and diluent in the equipment view.",
+          "placeholder": "[Add the approved supply list.]"
+        },
+        {
+          "title": "Keep the sequence clear",
+          "art": "d",
+          "description": "A separate card can explain one part of a longer preparation sequence.",
+          "placeholder": "[Add one verified preparation instruction.]"
+        },
+        {
+          "title": "Connect a visual to a step",
+          "art": "e",
+          "description": "Relevant artwork stays beside the instruction on desktop and above it on a phone.",
+          "placeholder": "[Add a verified instruction and source.]"
+        },
+        {
+          "title": "Keep details close",
+          "art": "f",
+          "description": "Optional source details remain within reach without interrupting the main sequence.",
+          "placeholder": "[Add the approved instruction and supporting reference.]"
+        }
+      ]
+    },
+    "ganirelix": {
+      "label": "Ganirelix / Fyremadel",
+      "shortLabel": "Ganirelix",
+      "art": "prefilled",
+      "dose": "[Prescribed dose]",
+      "schedule": "[Prescribed schedule]",
+      "steps": [
+        {
+          "title": "Introduce a new medication",
+          "art": "prefilled",
+          "description": "The same familiar layout introduces a new illustrated guide.",
+          "placeholder": "[Add approved medication and device information.]"
+        },
+        {
+          "title": "Show one step at a time",
+          "art": "prefilled",
+          "description": "The illustration, instruction and optional reading check stay together.",
+          "placeholder": "[Add a verified instruction and reviewed illustration.]"
+        },
+        {
+          "title": "A clear place to finish",
+          "art": "prefilled",
+          "description": "The guide ends with a clear navigation boundary. Reading progress never becomes a medication record.",
+          "placeholder": "[Add the final approved instruction for this guide.]"
+        }
+      ]
+    }
+  },
+  "supplies": [
+    [
+      "pen",
+      "a",
+      "Pen and case"
+    ],
+    [
+      "cartridge",
+      "cartridge",
+      "Cartridge"
+    ],
+    [
+      "capsules",
+      "capsules",
+      "Needle capsules"
+    ],
+    [
+      "powder",
+      "powder",
+      "Powder vial"
+    ],
+    [
+      "water",
+      "water",
+      "Diluent vial"
+    ],
+    [
+      "adapter",
+      "d",
+      "Adapter"
+    ],
+    [
+      "syringe",
+      "e",
+      "Syringe"
+    ],
+    [
+      "needle",
+      "f",
+      "Needle packaging"
+    ]
+  ]
+}
