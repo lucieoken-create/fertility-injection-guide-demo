@@ -18,6 +18,7 @@ function renderHome(){panel.innerHTML=`<h2 id="section-title" tabindex="-1">Foll
 function render(focus=false){
  clearTimeout(timer);$('#confetti').replaceChildren();$('#encouragement').textContent='';
  const tabs=$('.tabs'),context=$('#phase-context'),position=$('#medication-position');
+ $('#intro-panel').classList.toggle('home-intro',!phase);
  tabs.hidden=!phase;context.hidden=!phase;$('#all-phases').hidden=!phase;$('.nav-row').hidden=!phase;$('#reset').hidden=!phase;position.hidden=!phase||section===0;
  $('#phase-intro').textContent=phase?'Follow the supplies and medication steps for this sample phase.':"Fertility injections can feel overwhelming. This illustrated, step-by-step guide is designed to make clinic instructions easier to follow throughout the injection process leading up to egg retrieval. It groups medications and instructions into phases, so you can find the current plan and refer back to earlier instructions.";
  if(!phase){tabs.replaceChildren();position.replaceChildren();panel.removeAttribute('role');panel.removeAttribute('aria-labelledby');renderHome();}

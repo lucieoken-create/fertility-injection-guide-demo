@@ -15,6 +15,7 @@ The CSS variables in `styles.css` are the source of truth:
 | Token | Value | Use |
 | --- | --- | --- |
 | `--paper` | `#f7f6f0` | Warm page background |
+| `--surface` | `#fffefa` | Reading panel and card surfaces |
 | `--ink` | `#273b38` | Main text and outlines |
 | `--muted` | `#54655f` | Supporting text |
 | `--teal` | `#285b51` | Actions and current state |
@@ -35,12 +36,14 @@ Technique diagrams have their own viewBoxes and accessible titles/descriptions. 
 
 ## Existing components
 
-- **Phase cards:** current sample first, earlier sample alongside it on desktop. Keep the status eyebrow, short sentence-case title, medication artwork and “View instructions” button. Explain changes in body text.
+- **Home introduction:** a warm-white panel with a thin border, matching 18px card corners and a 72ch text measure. Desktop padding is 24px vertically/28px horizontally; phones use 20px. Its 40px desktop/32px phone bottom gap separates the introduction from the phase section. Walkthrough intros remain unboxed.
+
+- **Phase cards:** current sample first, earlier sample alongside it on desktop. Keep the status eyebrow, short sentence-case title, medication artwork and “View instructions” button. Explain changes in body text. Desktop card gaps are 24px; give headings 12px above and 16px below, and align action buttons to the bottom of each card. Phase sections have a 32px bottom gap (28px on phones).
 - **Supply cards:** equipment artwork above a separate white label footer. `.supply-label` centers text horizontally and vertically, with symmetric padding, a 72px desktop minimum and 66px phone minimum. Wrapped labels stay centered. Never center the entire card in place of its footer. Selection outlines and `aria-pressed` communicate optional selection.
-- **Step cards:** illustration beside practical copy on desktop, above it on phones. Dose/schedule placeholders sit above reading progress. Source details open in place; external links open only on a deliberate click.
+- **Step cards:** illustration beside practical copy on desktop, above it on phones. Dose/schedule placeholders sit above reading progress. Use 32px desktop copy padding and 24px on phones (the existing compact diagram override remains). Source details open in place; external links open only on a deliberate click.
 - **Technique diagrams:** preserve legible external labels and sufficient space around angle markers. Avoid overlaps with equipment or other annotations.
 - **Medication transitions:** explicit end-of-guide text, next medication illustration and Start button. Back restores the prior boundary. Starting the next guide does not double the celebration.
-- **Make it your own:** separate home section with collapsible adaptation guidance. Do not turn the medication walkthrough into developer setup instructions.
+- **Make it your own:** separate home section with collapsible adaptation guidance. Use 24px desktop/20px phone padding and a compact disclosure-to-list gap. Do not turn the medication walkthrough into developer setup instructions.
 
 ## Responsive behavior and accessibility
 
@@ -48,7 +51,7 @@ Main content is capped at 1180px. Supply columns change from four to three at 85
 
 Keep semantic headings, visible keyboard focus, skip navigation, tab-arrow navigation, modal focus containment and focus return. Buttons are generally at least 48px high; compact tools/source links use 44px targets. Current medication is stated in text, not color alone. Informative technique SVGs need accessible titles and descriptions; decorative equipment art has an adjacent label.
 
-Optional checks never block Next. All state remains in memory under the demo namespace and resets on reload or phase change. No storage, accounts, analytics or administration log. Confetti uses 24 particles and a 1.10-second animation, with cleanup after 1350ms. Reduced motion retains encouragement text without animation. Back/load must not celebrate, and animation must not block clicks.
+Optional checks never block Next. All state remains in memory under the demo namespace and resets on reload or phase change. No storage, accounts, analytics or administration log. Confetti uses 24 particles and a 1.10-second animation, with cleanup after 1350ms. Reduced motion retains encouragement text without animation. Back/load must not celebrate, and animation must not block clicks. Empty encouragement takes no layout space; the footer keeps a consistent 32px separation.
 
 ## Editing map and verification
 

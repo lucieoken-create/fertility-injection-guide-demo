@@ -17,6 +17,7 @@ check('Title and prominent demo status',await ev(`document.title.includes('Portf
 check('Clear phase titles and grouped tools',await ev(`JSON.stringify([...panel.querySelectorAll('.phase-card h3')].map(e=>e.textContent))===JSON.stringify(['Updated medication plan','Initial medication plan'])&&panel.textContent.includes('ChatGPT/Codex or Claude')`));
 check('Warm introduction and flexible phase count',await ev(`document.querySelector('#phase-intro').textContent.includes('leading up to egg retrieval')&&panel.innerText.includes('Your own plan may have more or fewer')`));
 check('Photo and source adaptation guidance',await ev(`panel.textContent.includes('DESIGN-GUIDE.md')&&panel.textContent.includes('barcodes, IDs')&&panel.textContent.includes('rather than republishing')`));
+check('Introduction reading panel on home',await ev(`document.querySelector('#intro-panel').classList.contains('home-intro')&&getComputedStyle(document.querySelector('#intro-panel')).backgroundColor==='rgb(255, 254, 250)'&&getComputedStyle(document.querySelector('#encouragement')).display==='none'`));
 check('Clean first load',await ev(`!phase&&selected.size===0&&read.size===0&&!document.querySelector('#confetti').children.length`));
 check('Practical purpose and adaptation guidance',await ev(`panel.innerText.includes('Your clinician may change medicines')&&panel.innerText.includes('Make it your own')&&panel.textContent.includes('Never commit medical records')`));
 check('Fictional data immutable',await ev(`Object.isFrozen(demo.phases)&&Object.isFrozen(demo.medications.follistim.steps)`));
@@ -27,6 +28,7 @@ for(const width of [320,390,768,1280]){
  await ev(`document.querySelector('.make-own details').open=false`);
  for(const phaseId of ['example-a','example-b']){
   await click('[data-phase="'+phaseId+'"]');
+  check('Walkthrough intro stays unboxed '+phaseId+width,await ev(`!document.querySelector('#intro-panel').classList.contains('home-intro')`));
   check(phaseId+' supply grid '+width,await ev(`document.querySelectorAll('.supply').length===(phase.medications.length===3?9:8)`));
   check('Supply labels centered '+phaseId+width,await ev(`[...document.querySelectorAll('.supply-label')].every(el=>{const box=el.getBoundingClientRect(),range=document.createRange();range.selectNodeContents(el);const text=range.getBoundingClientRect(),style=getComputedStyle(el);return style.textAlign==='center'&&style.alignItems==='center'&&Math.abs((text.left+text.right-box.left-box.right)/2)<2&&Math.abs((text.top+text.bottom-box.top-box.bottom)/2)<4&&text.height<=box.height&&text.width<=box.width;})`));
   check('Walkthrough phase heading concise '+phaseId+width,await ev(`document.querySelector('#phase-context h2').textContent===phase.title&&!document.querySelector('#phase-context h2').textContent.includes('Example')`));
