@@ -34,6 +34,8 @@ for(const width of [320,390,768,1280]){
  await ev(`document.querySelector('.make-own details').open=false`);
  for(const phaseId of ['example-a','example-b']){
   await click('[data-phase="'+phaseId+'"]');
+  check('Detail wrapper and body type '+phaseId+width,await ev(`getComputedStyle(document.querySelector('main')).maxWidth==='1000px'&&getComputedStyle(document.querySelector('main')).fontSize==='16px'&&getComputedStyle(document.querySelector('main')).lineHeight==='26px'&&getComputedStyle(document.querySelector('.intro')).maxWidth==='none'`));
+  check('Detail section edges align '+phaseId+width,await ev(`(()=>{const r=['#phase-context','.tabs','.section-top','.supply-grid','.nav-row','footer'].map(s=>document.querySelector(s).getBoundingClientRect());return r.every(x=>Math.abs(x.left-r[0].left)<1&&Math.abs(x.right-r[0].right)<1)})()`));
   check('Walkthrough intro stays unboxed '+phaseId+width,await ev(`!document.querySelector('#intro-panel').classList.contains('home-intro')`));
   check(phaseId+' supply grid '+width,await ev(`document.querySelectorAll('.supply').length===(phase.medications.length===3?9:8)`));
   check('Supply labels centered '+phaseId+width,await ev(`[...document.querySelectorAll('.supply-label')].every(el=>{const box=el.getBoundingClientRect(),range=document.createRange();range.selectNodeContents(el);const text=range.getBoundingClientRect(),style=getComputedStyle(el);return style.textAlign==='center'&&style.alignItems==='center'&&Math.abs((text.left+text.right-box.left-box.right)/2)<2&&Math.abs((text.top+text.bottom-box.top-box.bottom)/2)<4&&text.height<=box.height&&text.width<=box.width;})`));
@@ -46,6 +48,7 @@ for(const width of [320,390,768,1280]){
    for(let i=0;i<length;i++){
     check(`${phaseId}/${med}/${i}/${width} readable`,await ev(`!transition&&section===${med}&&positions[section]===${i}&&document.documentElement.scrollWidth<=innerWidth&&document.querySelector('.plan').innerText.includes('[Prescribed dose]')&&document.querySelector('.med-position-list [aria-current=step]').textContent.includes('(current)')`));
     check('Practical step and safe source '+phaseId+med+i+width,await ev(`!panel.innerText.includes('Connect a visual')&&!panel.innerText.includes('responsive layout')&&(!document.querySelector('.source-detail a')||document.querySelector('.source-detail a').rel==='noopener noreferrer')`));
+    check('Instruction text and card alignment '+phaseId+med+i+width,await ev(`(()=>{const p=document.querySelector('.step-copy>p'),s=getComputedStyle(p),r=['.plan','.progress-track','.step-card','.nav-row'].map(q=>document.querySelector(q).getBoundingClientRect());return s.fontSize==='16px'&&s.lineHeight==='26px'&&s.maxWidth==='none'&&r.every(x=>Math.abs(x.left-r[0].left)<1&&Math.abs(x.right-r[0].right)<1)})()`));
     check('No automatic reading check '+phaseId+med+i+width,await ev(`!document.querySelector('#read-check').checked`));
     if(i===0){await click('#read-check');await click('#next');await click('#back');check('Back keeps check without celebration '+phaseId+med+width,await ev(`document.querySelector('#read-check').checked&&!document.querySelector('#confetti').children.length`));await click('#read-check');}
     if(i<length-1)await click('#next');

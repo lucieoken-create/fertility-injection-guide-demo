@@ -47,3 +47,25 @@ main.is-home .phase-card-copy>p.small{font-size:14px;line-height:22px}
 main.is-home .home-intro,main.is-home .phase-grid,main.is-home .make-own{width:100%;max-width:none;margin-left:0;margin-right:0}
 body:has(main.is-home) .bar{max-width:1000px}
 main.is-home>h1{max-width:none}
+
+/* Walkthroughs use the approved page rail; art/text remain useful subcolumns. */
+main:not(.is-home){max-width:1000px;font-size:16px;line-height:26px;--detail-inset:24px;--detail-gap:24px;--detail-heading:32px}
+body:has(main:not(.is-home)) .bar{max-width:1000px}
+main:not(.is-home)>h1,main:not(.is-home) .intro,main:not(.is-home) .demo-details{max-width:none}
+main:not(.is-home) .intro{font-size:16px;line-height:26px;margin:16px 0 var(--detail-gap)}
+main:not(.is-home) #phase-context{margin-bottom:var(--detail-gap)}
+main:not(.is-home) #phase-context h2,main:not(.is-home) .section-top h2,main:not(.is-home) .transition-copy h2{font-size:var(--detail-heading);line-height:1.25}
+main:not(.is-home) .tabs,main:not(.is-home) .med-position-list{margin-bottom:var(--detail-gap)}
+main:not(.is-home) .section-top{margin-bottom:16px}
+main:not(.is-home) .plan{padding:16px var(--detail-inset);margin-bottom:var(--detail-gap)}
+main:not(.is-home) .plan strong{font-size:18px;line-height:26px}
+main:not(.is-home) .plan p{font-size:14px;line-height:22px}
+main:not(.is-home) .progress-track{margin-bottom:var(--detail-gap)}
+main:not(.is-home) .step-copy,main:not(.is-home) .step-copy:has(.technique-figure),main:not(.is-home) .transition-copy{padding:var(--detail-inset);min-width:0}
+main:not(.is-home) .step-copy h3,main:not(.is-home) .transition-copy h3{font:400 28px/1.25 Georgia,serif;margin-bottom:16px}
+main:not(.is-home) .step-copy p,main:not(.is-home) .transition-copy p{font-size:16px;line-height:26px;max-width:none}
+main:not(.is-home) .step-copy .small,main:not(.is-home) .source-detail p,main:not(.is-home) .transition-copy .transition-kicker{font-size:14px;line-height:22px}
+main:not(.is-home) .source-detail{margin-top:var(--detail-gap)}
+main:not(.is-home) .step-copy>p:last-child,main:not(.is-home) .transition-copy>p:last-child{margin-bottom:0}
+main:not(.is-home) .nav-row{margin-top:var(--detail-gap)}
+@media(max-width:600px){main:not(.is-home){--detail-inset:20px;--detail-heading:28px}main:not(.is-home) .step-copy h3,main:not(.is-home) .transition-copy h3{font-size:26px}}
