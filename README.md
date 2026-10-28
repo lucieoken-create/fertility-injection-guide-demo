@@ -59,7 +59,7 @@ The in-memory state namespace is `fertility-portfolio-demo-v1`. The demo never r
 
 ## Adapting your own copy
 
-Once source sharing is approved, fork or copy a clean template, then create a private working version before adding any personal plan. Replace example medicines, devices, prescribed doses, times and phase changes with clinician-provided instructions. ChatGPT, Codex or Claude can help adapt content and illustrations; review every change against the actual materials. Never commit real medical records or personal treatment details to a public repository. A public fork is not private storage. No public repository URL exists yet.
+Once source sharing is approved, fork or copy a clean template, then create a private working version before adding any personal plan. Replace example medicines, devices, prescribed doses, times and phase changes with clinician-provided instructions. ChatGPT/Codex or Claude can help adapt content and illustrations; review every change against the actual materials. Never commit real medical records or personal treatment details to a public repository. A public fork is not private storage. No public repository URL exists yet.
 
 ## Future community template
 

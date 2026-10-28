@@ -16,7 +16,7 @@
       "id": "example-b",
       "number": "B",
       "status": "Current sample phase",
-      "title": "Updated plan: an added medication",
+      "title": "Updated medication plan",
       "description": "This example adds Ganirelix / Fyremadel alongside Follistim and Menopur. The initial plan remains available for reference.",
       "medications": [
         "follistim",

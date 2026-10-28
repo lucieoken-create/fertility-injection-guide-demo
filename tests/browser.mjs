@@ -14,6 +14,7 @@ const ready=()=>ev(`new Promise(r=>document.readyState==='complete'?r():addEvent
 const key=async(name,code)=>{await send('Input.dispatchKeyEvent',{type:'keyDown',key:name,code:name,windowsVirtualKeyCode:code,...(name==='Enter'?{text:'\r'}:{})});await send('Input.dispatchKeyEvent',{type:'keyUp',key:name,code:name,windowsVirtualKeyCode:code});};
 await send('Page.enable');await send('Runtime.enable');await send('Network.enable');await send('Page.navigate',{url});await ready();await mkdir(output,{recursive:true});
 check('Title and prominent demo status',await ev(`document.title.includes('Portfolio demo')&&document.querySelector('header').innerText.includes('Not for treatment decisions')`));
+check('Clear phase titles and grouped tools',await ev(`JSON.stringify([...panel.querySelectorAll('.phase-card h3')].map(e=>e.textContent))===JSON.stringify(['Updated medication plan','Initial medication plan'])&&panel.textContent.includes('ChatGPT/Codex or Claude')`));
 check('Clean first load',await ev(`!phase&&selected.size===0&&read.size===0&&!document.querySelector('#confetti').children.length`));
 check('Practical purpose and adaptation guidance',await ev(`panel.innerText.includes('Your clinician may change medicines')&&panel.innerText.includes('Make it your own')&&panel.textContent.includes('Never commit medical records')`));
 check('Fictional data immutable',await ev(`Object.isFrozen(demo.phases)&&Object.isFrozen(demo.medications.follistim.steps)`));
@@ -24,6 +25,9 @@ for(const width of [320,390,768,1280]){
  for(const phaseId of ['example-a','example-b']){
   await click('[data-phase="'+phaseId+'"]');
   check(phaseId+' supply grid '+width,await ev(`document.querySelectorAll('.supply').length===(phase.medications.length===3?9:8)`));
+  check('Supply labels centered '+phaseId+width,await ev(`[...document.querySelectorAll('.supply-label')].every(el=>{const box=el.getBoundingClientRect(),range=document.createRange();range.selectNodeContents(el);const text=range.getBoundingClientRect(),style=getComputedStyle(el);return style.textAlign==='center'&&style.alignItems==='center'&&Math.abs((text.left+text.right-box.left-box.right)/2)<2&&Math.abs((text.top+text.bottom-box.top-box.bottom)/2)<4&&text.height<=box.height&&text.width<=box.width;})`));
+  check('Walkthrough phase heading concise '+phaseId+width,await ev(`document.querySelector('#phase-context h2').textContent===phase.title&&!document.querySelector('#phase-context h2').textContent.includes('Example')`));
+  if(phaseId==='example-b'&&[320,390,1280].includes(width)){await ev(`window.scrollTo(0,0)`);const m=await send('Page.getLayoutMetrics'),shot=await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:true,clip:{x:0,y:0,width,height:m.cssContentSize.height,scale:1}});await writeFile(output+'/supplies-'+width+'.png',Buffer.from(shot.data,'base64'));}
   await click('[data-item="pen"]');check('Namespaced optional selection '+phaseId+width,await ev(`selected.size===1&&[...selected][0].startsWith('fertility-portfolio-demo-v1:')`));
   await click('#next');const count=await ev(`phase.medications.length`);
   for(let med=1;med<=count;med++){
